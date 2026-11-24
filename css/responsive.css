@@ -1,0 +1,158 @@
+/* ==========================================================================
+   CareerBridge - Responsive Breakpoints (Laptop, Tablet, Mobile)
+   ========================================================================== */
+
+/* Laptop (<= 1200px) */
+@media (max-width: 1200px) {
+  .kpi-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .grid-5 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .grid-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .resume-builder-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .resume-preview-sticky {
+    position: static;
+  }
+}
+
+/* Tablet (<= 992px) */
+@media (max-width: 992px) {
+  .nav-links {
+    display: none;
+  }
+
+  .mobile-menu-toggle {
+    display: grid;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .hero-visual {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .jobs-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .filter-sidebar {
+    position: static;
+  }
+
+  .auth-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-aside {
+    padding: 32px;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .workspace-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .workspace-sidebar {
+    position: fixed;
+    left: -290px;
+    top: var(--navbar-height);
+    width: 270px;
+    z-index: 990;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .workspace-sidebar.mobile-open {
+    left: 0;
+  }
+
+  .workspace-main {
+    padding: 24px 20px 40px;
+  }
+}
+
+/* Mobile (<= 768px) */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .section {
+    padding: 48px 0;
+  }
+
+  .hero {
+    padding: 44px 0 56px;
+  }
+
+  .hero-search-box,
+  .search-bar-inline {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-float-card {
+    display: none;
+  }
+
+  .grid-2,
+  .grid-3,
+  .grid-4,
+  .grid-5,
+  .kpi-grid,
+  .form-row,
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-banner {
+    padding: 34px 24px;
+  }
+
+  .auth-form-panel {
+    padding: 28px 22px;
+  }
+
+  .nav-user-name {
+    display: none;
+  }
+
+  .company-profile-head {
+    padding: 0 20px 24px;
+  }
+}
+
+/* Small Mobile (<= 480px) */
+@media (max-width: 480px) {
+  .nav-actions .btn {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+  }
+
+  .footer-newsletter-form {
+    flex-direction: column;
+  }
+
+  .resume-sheet {
+    padding: 22px 18px;
+  }
+}

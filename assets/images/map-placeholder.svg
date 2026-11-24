@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 320" fill="none">
+  <rect width="560" height="320" rx="18" fill="#EFF6FF"/>
+  <path d="M0 90H560M0 180H560M0 260H560M110 0V320M250 0V320M410 0V320" stroke="#DBEAFE" stroke-width="6"/>
+  <path d="M40 240C140 200 220 120 350 140C440 154 490 95 540 70" stroke="#0EA5E9" stroke-width="8" stroke-linecap="round" stroke-dasharray="14 10"/>
+  <circle cx="280" cy="146" r="34" fill="#2563EB" fill-opacity="0.16"/>
+  <circle cx="280" cy="146" r="18" fill="#2563EB"/>
+  <circle cx="280" cy="146" r="7" fill="#FFFFFF"/>
+  <rect x="180" y="184" width="200" height="44" rx="12" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <text x="280" y="211" text-anchor="middle" font-family="Poppins, sans-serif" font-size="13" font-weight="600" fill="#0F172A">CareerBridge HQ • San Francisco</text>
+</svg>

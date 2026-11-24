@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CareerBridge – Smart Job Portal connecting top talent with leading companies, transparent salaries, and an interactive resume builder.">
+  <title>CareerBridge – Smart Job Portal</title>
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script defer src="js/utils.js"></script>
+  <script defer src="js/auth.js"></script>
+  <script defer src="js/jobs.js"></script>
+  <script defer src="js/app.js"></script>
+</head>
+<body>
+  <a href="#mainContent" class="skip-link">Skip to main content</a>
+  <div id="appNavbar"></div>
+
+  <main id="mainContent">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="animate-slide">
+          <span class="section-eyebrow"><i class="bi bi-stars"></i> #1 Smart Career Platform</span>
+          <h1 class="hero-title">Discover Your Next <span class="gradient-text">Career Breakthrough</span></h1>
+          <p class="hero-subtitle">
+            Explore verified tech, design, data, and leadership roles with transparent salary ranges, instant bookmarking, and a built-in resume studio.
+          </p>
+
+          <form class="hero-search-box" id="heroSearchForm" role="search" aria-label="Search jobs">
+            <div class="hero-search-field">
+              <i class="bi bi-search" aria-hidden="true"></i>
+              <input type="text" id="heroSearchQuery" placeholder="Job title, skill, or company..." aria-label="Job title, skill, or company">
+            </div>
+            <div class="hero-search-field">
+              <i class="bi bi-geo-alt" aria-hidden="true"></i>
+              <input type="text" id="heroSearchLocation" placeholder="City, state, or Remote..." aria-label="Location">
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg">Search Jobs</button>
+          </form>
+
+          <div class="hero-tags">
+            <span>Trending:</span>
+            <a href="jobs.html?q=Frontend" class="hero-tag">Frontend Engineer</a>
+            <a href="jobs.html?q=Design" class="hero-tag">Product Design</a>
+            <a href="jobs.html?remote=true" class="hero-tag">100% Remote</a>
+            <a href="jobs.html?q=Python" class="hero-tag">Python &amp; AI</a>
+          </div>
+        </div>
+
+        <div class="hero-visual animate-zoom">
+          <img src="assets/illustrations/hero-career.svg" alt="CareerBridge smart job matching dashboard illustration">
+          <div class="hero-float-card top">
+            <div class="kpi-icon" style="background:var(--success-bg); color:var(--success); width:40px; height:40px;">
+              <i class="bi bi-check-circle-fill"></i>
+            </div>
+            <div>
+              <strong style="display:block; font-size:0.9rem;">94% Match Rate</strong>
+              <small class="text-muted">Verified skill alignment</small>
+            </div>
+          </div>
+          <div class="hero-float-card bottom">
+            <div class="kpi-icon" style="background:var(--primary-light); color:var(--primary); width:40px; height:40px;">
+              <i class="bi bi-building-check"></i>
+            </div>
+            <div>
+              <strong style="display:block; font-size:0.9rem;">2,400+ Hiring Teams</strong>
+              <small class="text-muted">Transparent salaries</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Statistics Strip -->
+    <section class="section-sm">
+      <div class="container grid-4">
+        <div class="stat-box">
+          <div class="stat-value">18,500+</div>
+          <p class="text-secondary">Active Verified Jobs</p>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value">2,400+</div>
+          <p class="text-secondary">Partner Companies</p>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value">92%</div>
+          <p class="text-secondary">Interview Callback Boost</p>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value">140k+</div>
+          <p class="text-secondary">Careers Launched</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Companies -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-eyebrow"><i class="bi bi-buildings"></i> Top Employers</span>
+            <h2 class="section-title">Featured Companies Hiring Now</h2>
+            <p class="section-subtitle">Explore transparent culture insights, employee reviews, and open teams.</p>
+          </div>
+          <a href="companies.html" class="btn btn-outline">View All Companies <i class="bi bi-arrow-right"></i></a>
+        </div>
+        <div class="grid-3" id="homeFeaturedCompanies"></div>
+      </div>
+    </section>
+
+    <!-- Popular Categories (15) -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header centered">
+          <span class="section-eyebrow"><i class="bi bi-grid"></i> Browse by Discipline</span>
+          <h2 class="section-title">Popular Job Categories</h2>
+          <p class="section-subtitle">Jump directly into specialized roles across engineering, design, AI, operations, and leadership.</p>
+        </div>
+        <div class="grid-5" id="homeCategoriesGrid"></div>
+      </div>
+    </section>
+
+    <!-- Latest Jobs -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-eyebrow"><i class="bi bi-lightning-charge"></i> Fresh Openings</span>
+            <h2 class="section-title">Latest Job Opportunities</h2>
+            <p class="section-subtitle">Hand-picked roles updated daily with clear salary bands and skill tags.</p>
+          </div>
+          <a href="jobs.html" class="btn btn-primary">Explore All 30+ Jobs <i class="bi bi-arrow-right"></i></a>
+        </div>
+        <div class="grid-3" id="homeLatestJobs"></div>
+      </div>
+    </section>
+
+    <!-- Testimonials (5) -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header centered">
+          <span class="section-eyebrow"><i class="bi bi-chat-quote"></i> Candidate Stories</span>
+          <h2 class="section-title">Loved by Modern Professionals</h2>
+          <p class="section-subtitle">See how engineers, designers, and product leaders land roles faster with CareerBridge.</p>
+        </div>
+        <div class="grid-3" id="homeTestimonialsGrid"></div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="section-sm">
+      <div class="container">
+        <div class="cta-banner">
+          <div>
+            <h2>Ready to Build Your Standout Career Profile?</h2>
+            <p>Create a free account to track applications, bookmark top jobs, and export a recruiter-ready resume in minutes.</p>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <a href="register.html" class="btn btn-white btn-lg">Create Free Account</a>
+            <a href="resume-builder.html" class="btn btn-outline btn-lg" style="color:#fff; border-color:#fff;">Try Resume Builder</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="appFooter"></div>
+</body>
+</html>

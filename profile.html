@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Profile | CareerBridge</title>
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script defer src="js/utils.js"></script>
+  <script defer src="js/auth.js"></script>
+  <script defer src="js/profile.js"></script>
+  <script defer src="js/app.js"></script>
+</head>
+<body>
+  <div id="appNavbar"></div>
+
+  <div class="workspace-shell">
+    <aside class="workspace-sidebar" id="workspaceSidebar"></aside>
+
+    <main class="workspace-main">
+      <div class="workspace-topbar">
+        <div>
+          <h1 style="font-size:1.65rem; font-weight:700;">Candidate Profile</h1>
+          <p class="text-secondary">Keep your personal details, skills, experience, and social links up to date.</p>
+        </div>
+        <a href="resume-builder.html" class="btn btn-outline btn-sm"><i class="bi bi-file-earmark-person"></i> Open Resume Builder</a>
+      </div>
+
+      <div class="grid-2" style="align-items:start;">
+        <!-- Personal Info + Social Links -->
+        <section class="card">
+          <div class="flex gap-2 mb-3" style="align-items:center;">
+            <img id="profileAvatarPreview" src="assets/images/avatar-default.svg" alt="Profile picture" style="width:76px;height:76px;border-radius:50%;object-fit:cover;border:2px solid var(--primary);">
+            <div>
+              <h2 style="font-size:1.1rem; font-weight:600;">Profile Picture</h2>
+              <label class="btn btn-secondary btn-sm mt-1" style="cursor:pointer;">
+                <i class="bi bi-upload"></i> Upload Photo
+                <input type="file" id="profileAvatarInput" accept="image/*" hidden>
+              </label>
+            </div>
+          </div>
+
+          <form id="profilePersonalForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="profFullName">Full Name</label>
+                <input type="text" id="profFullName" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="profHeadline">Headline</label>
+                <input type="text" id="profHeadline" class="form-control">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="profEmail">Email Address</label>
+                <input type="email" id="profEmail" class="form-control" readonly>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="profPhone">Phone</label>
+                <input type="tel" id="profPhone" class="form-control">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="profLocation">Location</label>
+              <input type="text" id="profLocation" class="form-control">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="profBio">Bio / About</label>
+              <textarea id="profBio" class="form-control" rows="3"></textarea>
+            </div>
+
+            <h3 style="font-size:1rem; margin:20px 0 12px;">Social Links</h3>
+            <div class="form-group">
+              <label class="form-label" for="profLinkedin"><i class="bi bi-linkedin text-primary"></i> LinkedIn URL</label>
+              <input type="url" id="profLinkedin" class="form-control" placeholder="https://linkedin.com/in/...">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="profGithub"><i class="bi bi-github"></i> GitHub URL</label>
+              <input type="url" id="profGithub" class="form-control" placeholder="https://github.com/...">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="profPortfolio"><i class="bi bi-globe text-accent"></i> Portfolio URL</label>
+              <input type="url" id="profPortfolio" class="form-control" placeholder="https://yourdomain.dev">
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Save Profile Changes</button>
+          </form>
+        </section>
+
+        <!-- Skills, Education, Experience, Password -->
+        <div class="flex" style="flex-direction:column; gap:24px;">
+          <section class="card">
+            <h2 style="font-size:1.1rem; font-weight:600; margin-bottom:10px;">Skills</h2>
+            <div class="flex gap-1">
+              <input type="text" id="profSkillInput" class="form-control" placeholder="Add a skill (e.g. CSS3, Python)">
+              <button type="button" class="btn btn-primary" id="profAddSkillBtn">Add</button>
+            </div>
+            <div class="tag-editor" id="profSkillsList"></div>
+          </section>
+
+          <section class="card">
+            <div class="flex-between mb-2">
+              <h2 style="font-size:1.1rem; font-weight:600;">Experience</h2>
+              <button type="button" class="btn btn-secondary btn-sm" id="profAddExpBtn"><i class="bi bi-plus"></i> Add</button>
+            </div>
+            <div id="profExpList"></div>
+          </section>
+
+          <section class="card">
+            <div class="flex-between mb-2">
+              <h2 style="font-size:1.1rem; font-weight:600;">Education</h2>
+              <button type="button" class="btn btn-secondary btn-sm" id="profAddEduBtn"><i class="bi bi-plus"></i> Add</button>
+            </div>
+            <div id="profEduList"></div>
+          </section>
+
+          <section class="card">
+            <h2 style="font-size:1.1rem; font-weight:600; margin-bottom:12px;">Change Password</h2>
+            <form id="changePasswordForm">
+              <div class="form-group">
+                <label class="form-label" for="currPassword">Current Password</label>
+                <div class="input-wrap">
+                  <i class="bi bi-lock input-icon"></i>
+                  <input type="password" id="currPassword" class="form-control has-toggle" required>
+                  <button type="button" class="password-toggle" data-toggle-password="currPassword" aria-label="Show password"><i class="bi bi-eye"></i></button>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="newPassword">New Password</label>
+                  <input type="password" id="newPassword" class="form-control" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="confirmNewPassword">Confirm New</label>
+                  <input type="password" id="confirmNewPassword" class="form-control" required>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-secondary">Update Password</button>
+            </form>
+          </section>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

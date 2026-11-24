@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In | CareerBridge</title>
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script defer src="js/utils.js"></script>
+  <script defer src="js/auth.js"></script>
+  <script defer src="js/app.js"></script>
+</head>
+<body>
+  <div id="appNavbar"></div>
+
+  <main class="auth-page">
+    <div class="auth-wrapper animate-zoom">
+      <aside class="auth-aside">
+        <div>
+          <span class="badge" style="background:rgba(255,255,255,0.2); color:#fff; margin-bottom:16px;">Candidate Workspace</span>
+          <h2>Welcome Back to CareerBridge</h2>
+          <p class="mt-2" style="opacity:0.9;">Pick up right where you left off—track interviews, saved roles, and custom resumes in one place.</p>
+        </div>
+
+        <ul class="auth-feature-list">
+          <li><i class="bi bi-check-circle-fill"></i> Real-time application status tracking</li>
+          <li><i class="bi bi-check-circle-fill"></i> One-click apply with saved resume</li>
+          <li><i class="bi bi-check-circle-fill"></i> Instant job &amp; interview alerts</li>
+          <li><i class="bi bi-check-circle-fill"></i> Dark &amp; light workspace themes</li>
+        </ul>
+
+        <div style="background:rgba(255,255,255,0.14); padding:14px 16px; border-radius:12px; font-size:0.84rem;">
+          <strong>Demo Candidate Account</strong><br>
+          Email: <code>alex@careerbridge.io</code><br>
+          Password: <code>Password@123</code>
+        </div>
+      </aside>
+
+      <section class="auth-form-panel">
+        <h1 style="font-size:1.65rem; font-weight:700; margin-bottom:6px;">Sign In</h1>
+        <p class="text-secondary mb-3" style="font-size:0.9rem;">Enter your credentials to access your dashboard.</p>
+
+        <form id="loginForm" novalidate>
+          <div class="form-group">
+            <label class="form-label" for="loginEmail">Email Address <span class="required">*</span></label>
+            <div class="input-wrap">
+              <i class="bi bi-envelope input-icon"></i>
+              <input type="email" id="loginEmail" class="form-control" placeholder="alex@careerbridge.io" autocomplete="email" required>
+            </div>
+            <span class="form-error" id="loginEmailError"></span>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="loginPassword">Password <span class="required">*</span></label>
+            <div class="input-wrap">
+              <i class="bi bi-lock input-icon"></i>
+              <input type="password" id="loginPassword" class="form-control has-toggle" placeholder="Enter your password" autocomplete="current-password" required>
+              <button type="button" class="password-toggle" data-toggle-password="loginPassword" aria-label="Show password">
+                <i class="bi bi-eye"></i>
+              </button>
+            </div>
+            <span class="form-error" id="loginPasswordError"></span>
+          </div>
+
+          <div class="flex-between mb-3 flex-wrap gap-1">
+            <label class="checkbox-label">
+              <input type="checkbox" id="rememberMe">
+              <span>Remember me</span>
+            </label>
+            <button type="button" id="forgotPasswordBtn" class="text-primary" style="font-size:0.86rem; font-weight:600;">Forgot Password?</button>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block btn-lg">Sign In to Dashboard</button>
+          <button type="button" id="demoLoginBtn" class="btn btn-outline btn-block mt-2">
+            <i class="bi bi-lightning-charge"></i> Quick Demo Sign In
+          </button>
+        </form>
+
+        <p class="text-center text-secondary mt-3" style="font-size:0.9rem;">
+          New to CareerBridge? <a href="register.html" class="text-primary" style="font-weight:600;">Create an account</a>
+        </p>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume Builder | CareerBridge</title>
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script defer src="js/utils.js"></script>
+  <script defer src="js/auth.js"></script>
+  <script defer src="js/resume.js"></script>
+  <script defer src="js/app.js"></script>
+</head>
+<body>
+  <div id="appNavbar"></div>
+
+  <div class="workspace-shell" id="resumeBuilderRoot">
+    <aside class="workspace-sidebar" id="workspaceSidebar"></aside>
+
+    <main class="workspace-main">
+      <div class="workspace-topbar">
+        <div>
+          <h1 style="font-size:1.65rem; font-weight:700;">Smart Resume Builder</h1>
+          <p class="text-secondary">Edit sections on the left—auto-saved in LocalStorage with live printable preview.</p>
+        </div>
+        <div class="flex flex-wrap gap-1">
+          <button type="button" class="btn btn-secondary btn-sm" id="resetSampleResumeBtn"><i class="bi bi-arrow-counterclockwise"></i> Load Sample</button>
+          <button type="button" class="btn btn-outline btn-sm" id="generatePreviewBtn"><i class="bi bi-eye"></i> Generate Preview</button>
+          <button type="button" class="btn btn-primary btn-sm" id="printResumeBtn"><i class="bi bi-printer"></i> Download / Print Resume</button>
+        </div>
+      </div>
+
+      <div class="resume-builder-grid">
+        <!-- Editor Panel -->
+        <div class="resume-editor-panel flex" style="flex-direction:column; gap:20px;">
+          <section class="card">
+            <div class="flex-between mb-2">
+              <h2 style="font-size:1.1rem;">Personal Details</h2>
+              <label class="flex gap-1" style="align-items:center; font-size:0.84rem;">
+                Accent:
+                <input type="color" id="resAccentColor" value="#2563EB" style="width:32px;height:28px;border:none;background:none;cursor:pointer;">
+              </label>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="resFullName">Full Name</label>
+                <input type="text" id="resFullName" class="form-control">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="resTitle">Professional Title</label>
+                <input type="text" id="resTitle" class="form-control">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="resEmail">Email</label>
+                <input type="email" id="resEmail" class="form-control">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="resPhone">Phone</label>
+                <input type="tel" id="resPhone" class="form-control">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="resLocation">Location</label>
+                <input type="text" id="resLocation" class="form-control">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="resWebsite">Website / Portfolio</label>
+                <input type="url" id="resWebsite" class="form-control">
+              </div>
+            </div>
+            <div class="form-group" style="margin-bottom:0;">
+              <label class="form-label" for="resSummary">Professional Summary</label>
+              <textarea id="resSummary" class="form-control" rows="3"></textarea>
+            </div>
+          </section>
+
+          <section class="card">
+            <div class="flex-between mb-2">
+              <h2 style="font-size:1.1rem;">Experience</h2>
+              <button type="button" class="btn btn-secondary btn-sm" id="addExpBtn"><i class="bi bi-plus"></i> Add</button>
+            </div>
+            <div id="expRepeaterList"></div>
+          </section>
+
+          <section class="card">
+            <div class="flex-between mb-2">
+              <h2 style="font-size:1.1rem;">Education</h2>
+              <button type="button" class="btn btn-secondary btn-sm" id="addEduBtn"><i class="bi bi-plus"></i> Add</button>
+            </div>
+            <div id="eduRepeaterList"></div>
+          </section>
+
+          <section class="card">
+            <div class="flex-between mb-2">
+              <h2 style="font-size:1.1rem;">Projects</h2>
+              <button type="button" class="btn btn-secondary btn-sm" id="addProjBtn"><i class="bi bi-plus"></i> Add</button>
+            </div>
+            <div id="projRepeaterList"></div>
+          </section>
+
+          <section class="card">
+            <h2 style="font-size:1.1rem; margin-bottom:10px;">Skills</h2>
+            <div class="flex gap-1">
+              <input type="text" id="newResumeSkillInput" class="form-control" placeholder="Add a skill (e.g. TypeScript)">
+              <button type="button" class="btn btn-primary" id="addResumeSkillBtn">Add</button>
+            </div>
+            <div class="tag-editor" id="resSkillsTags"></div>
+          </section>
+
+          <section class="card">
+            <div class="flex-between mb-2">
+              <h2 style="font-size:1.1rem;">Certificates</h2>
+              <button type="button" class="btn btn-secondary btn-sm" id="addCertBtn"><i class="bi bi-plus"></i> Add</button>
+            </div>
+            <div id="certRepeaterList"></div>
+          </section>
+
+          <div class="grid-2">
+            <section class="card">
+              <div class="flex-between mb-2">
+                <h2 style="font-size:1.05rem;">Languages</h2>
+                <button type="button" class="btn btn-secondary btn-sm" id="addLangBtn"><i class="bi bi-plus"></i></button>
+              </div>
+              <div id="langRepeaterList"></div>
+            </section>
+            <section class="card">
+              <div class="flex-between mb-2">
+                <h2 style="font-size:1.05rem;">Achievements</h2>
+                <button type="button" class="btn btn-secondary btn-sm" id="addAchBtn"><i class="bi bi-plus"></i></button>
+              </div>
+              <div id="achRepeaterList"></div>
+            </section>
+          </div>
+        </div>
+
+        <!-- Live Printable Preview -->
+        <div class="resume-preview-sticky">
+          <div class="flex-between mb-2 no-print">
+            <span class="badge badge-accent"><i class="bi bi-printer"></i> Live Printable A4 Preview</span>
+            <small class="text-muted">Auto-saved locally</small>
+          </div>
+          <div class="resume-sheet" id="resumePreviewSheet"></div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
